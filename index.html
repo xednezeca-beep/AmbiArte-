@@ -263,45 +263,44 @@ class="fab fa-whatsapp"></i></a>
 </body>  
 </html>
  
-    <script> 
-        // Menu Mobile Toggle 
-        const menuBtn = document.querySelector('#mobile-menu'); 
-        const navList = document.querySelector('.nav-list'); 
+   <script> 
+    // 1. Menu Mobile Toggle 
+    const menuBtn = document.querySelector('#mobile-menu'); 
+    const navList = document.querySelector('.nav-list'); 
+ 
+    if (menuBtn && navList) { 
         menuBtn.addEventListener('click', () => { 
             menuBtn.classList.toggle('is-active'); 
             navList.classList.toggle('active'); 
         }); 
  
-        // Função de Maximizar Pop-up 
-        function toggleMaximize(btn) { 
-            const caixa = btn.closest('.modal-caixa'); 
-            const icon = btn.querySelector('i'); 
-            caixa.classList.toggle('maximized'); 
-            icon.classList.toggle('fa-expand'); 
-            icon.classList.toggle('fa-compress'); 
-        } 
- 
-        // Fechar Pop-up ao clicar no fundo escuro 
-        document.querySelectorAll('.modal-overlay').forEach(overlay => { 
-            overlay.addEventListener('click', function(e) { 
-                if (e.target === this) window.location.hash = '#'; 
+        // Fecha o menu automaticamente ao clicar em um link (ex: Portfólio) 
+        document.querySelectorAll('.nav-list a').forEach(link => { 
+            link.addEventListener('click', () => { 
+                menuBtn.classList.remove('is-active'); 
+                navList.classList.remove('active'); 
             }); 
         }); 
-        const menu = document.querySelector('#mobile-menu'); 
-const menuLinks = document.querySelector('.nav-list'); 
-// Abre/Fecha menu ao clicar no hambúrguer 
-menu.addEventListener('click', function() { 
-menu.classList.toggle('is-active'); 
-menuLinks.classList.toggle('active'); 
-}); 
-// Fecha o menu automaticamente ao clicar num link (ex: clicar em Portfólio) 
-document.querySelectorAll('.nav-list a').forEach(link => { 
-link.addEventListener('click', () => { 
-menu.classList.remove('is-active'); 
-menuLinks.classList.remove('active'); 
-}); 
-});
-    </script>
+    } 
+ 
+    // 2. Função de Maximizar Pop-up (Modais) 
+    function toggleMaximize(btn) { 
+        const caixa = btn.closest('.modal-caixa'); 
+        const icon = btn.querySelector('i'); 
+        caixa.classList.toggle('maximized'); 
+        icon.classList.toggle('fa-expand'); 
+        icon.classList.toggle('fa-compress'); 
+    } 
+ 
+    // 3. Fechar Pop-up ao clicar no fundo escuro 
+    document.querySelectorAll('.modal-overlay').forEach(overlay => { 
+        overlay.addEventListener('click', function(e) { 
+            if (e.target === this) { 
+                window.location.hash = '#'; 
+            } 
+        }); 
+    }); 
+</script>
        
 </body>  
 </html> 
