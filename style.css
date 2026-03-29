@@ -363,28 +363,34 @@ footer {
         width: 100%;
         height: auto;
         background-color: #1a1a1a;
-        z-index: 1000;
+        z-index: 9999;
         padding: 20px 0;
+        border-top: 1px solid #333;
     } 
  
     .nav-list.active { 
         display: flex;
     } 
   .nav-list.li { 
-        margin: 15px 0;
+        width: 100%;
         text-align: center;
-    } 
+        padding: 15px  0;
      } 
   .nav-list.li a { 
         color: #ffffff;
-        font-size: 1.2rem;
-        width: 100%;
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-decoration: none;
+        display: block;
     } 
+     .nav-list li a:hover { 
+       color: var(--laranja-marca);
+    }
     /* Animação do X no hambúrguer */ 
     .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; } 
     .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); } 
     .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); } 
-} 
+
  
 @media (min-width: 769px) { 
     .menu-toggle { display: none; } 
